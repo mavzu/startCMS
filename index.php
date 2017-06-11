@@ -6,7 +6,7 @@
         ini_set("display_errors","1");
     }
     
-    //Пождгружаем нужные классы
+    //Подгружаем нужные классы
     include MAINPATH."system/FuncController.php";
     include MAINPATH."system/MainController.php";
     include MAINPATH."controller/HomeController.php";
