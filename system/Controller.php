@@ -1,7 +1,7 @@
 <?php
     namespace system;
 
-    Class MainController {
+    Class Controller {
         protected $data;
         
         public $template = "";

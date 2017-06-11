@@ -1,7 +1,7 @@
 <?php
     namespace controller;
     
-    use system\MainController as Controller;
+    use system\Controller;
 
     Class HomeController extends Controller
     {
