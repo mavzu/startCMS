@@ -1,0 +1,17 @@
+Options +FollowSymlinks
+Options -Indexes
+
+<FilesMatch "\.(ini|log)">
+ Order deny,allow
+ Deny from all
+</FilesMatch>
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css|svg|html|txt)
+RewriteRule .* index.php [L,QSA]
+
+php_value date.timezone "Europe/Moscow"
+AddDefaultCharset UTF-8
