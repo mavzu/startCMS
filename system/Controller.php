@@ -1,10 +1,12 @@
 <?php
     namespace system;
 
-    Class Controller {
+    abstract class Controller 
+    {
         protected $data;
-        
         public $template = "";
+        
+        abstract protected function action();
         
         public function __construct()
         {

@@ -9,28 +9,38 @@
         private $dbname = "test";
         private $port = 3306;
         private $conDb;
+        private static $single;
        
         //Соединение с БД MySQLi
-        public function __construct()
+        private function __construct()
         {
-			$conDb = new \mysqli($this->host, $this->username, $this->password, $this->dbname, $this->port);
-            
+            $conDb = new \mysqli($this->host, $this->username, $this->password, $this->dbname, $this->port);
+
             //Если ошибка, то запись в лог
-			/*if (mysqli_connect_errno()) {
-				if(file_exists("")) {
-					$op = fopen("","a");
-					fwrite($op,"SystemDbConnect. Не подключиться к MySQL.".date("d.m.Y H:i:s")."\n");
-					fclose($op);
-				}
-				exit(); 
-			}*/
-				
+            /*if (mysqli_connect_errno()) {
+                if(file_exists("")) {
+                    $op = fopen("","a");
+                    fwrite($op,"SystemDbConnect. Не подключиться к MySQL.".date("d.m.Y H:i:s")."\n");
+                    fclose($op);
+                }
+                exit(); 
+            }*/
+
             //Настраиваем БД для работы с UTF-8
-			$conDb->query("SET NAMES 'utf-8'");
-			$conDb->query("SET CHARACTER SET utf8");
-			$conDb->query("SET CHARACTER_SET_CONNECTION=utf8");
-			
-			$this->conDb = $conDb;
+            $conDb->query("SET NAMES 'utf-8'");
+            $conDb->query("SET CHARACTER SET utf8");
+            $conDb->query("SET CHARACTER_SET_CONNECTION=utf8");
+
+            $this->conDb = $conDb;
+        }
+        
+        public static function init()
+        {
+            if(self::$single === null) {
+                self::$single = new self;
+            }
+            
+            return self::$single;
         }
         
         /* Передаем в функцию запроса к БД
