@@ -3,6 +3,7 @@
     use controller\HomeController;
     
     define("MAINPATH", __dir__."/");
+    define("mDomen", "http://" . $_SERVER['SERVER_NAME'] . "/");
     define("DEVELOP", true); //Продакшн или разработка
     
     if(DEVELOP) {
