@@ -1,2 +1,8 @@
+# Netbeans files
 /nbproject
+
+# Node files
 /node_modules
+
+# MacOs files
+.DS_Store

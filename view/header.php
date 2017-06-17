@@ -4,6 +4,10 @@
         <meta charset="utf-8" />
         <title><?=$data['title']?></title>
         <link rel="stylesheet" href="css/general.css" />
+        <script src="js/site.js"></script>
     </head>
     <body>
-        <img src="<?=mDomen?>images/bg.png" class="background-img"></div>
+        <div class="container">
+            <header>
+                
+            </header>
